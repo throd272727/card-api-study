@@ -26,14 +26,17 @@ window.addEventListener("load", function () {
     articles.forEach((article) => {
       const { title, description, url, urlToImage, publishedAt } = article;
 
-      const tempTag = `
-       <div class="card-wrap">
-       <div class="thumbnail">
+      const imageTag = urlToImage
+        ? `<div class="thumbnail">
         <a href="${url}" target="_blank" rel="noopener noreferrer">
          <img src="${urlToImage}" alt="thumbnail" />
-        </a>
-       </div>
-   
+        </a>       
+      </div>`
+        : "";
+
+      const tempTag = `
+       <div class="card-wrap">
+       ${imageTag}   
        <div class="content">
         <h2>
          <a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>
